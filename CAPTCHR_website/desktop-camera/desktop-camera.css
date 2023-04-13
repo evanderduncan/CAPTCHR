@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+html{
+    cursor: url("../images/mouse-pointer.png"), move;
+
+}
+
+a{
+    cursor: url("../images/mouse-hover.png"), default;
+  }
+
 body{
     background: rgb(104, 104, 104);
     padding: 0;
@@ -10,7 +19,7 @@ body{
 }
 
 .container{
-    background-color: azure;
+    background-color: rgb(0, 0, 0);
     position: relative;
     width:70vw;
     height:80vh;
@@ -35,7 +44,7 @@ body{
 }
 
 #circle{
-    position:relative;
+    position:absolute;
     z-index: 1;
     background-color: rgb(233, 48, 48);
     border-radius: 50%;
@@ -47,16 +56,31 @@ body{
 }
 
 #photo-gallery{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-   object-fit: cover;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width:80%;
+    z-index: 1;
+    
+   }
+
+video{
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width:80%;
+  z-index:0;
 }
 
-
+#flash-button {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index:2;
+    height: 50px;
+    cursor: url("../images/mouse-hover.png"), default;
+  }
 
 .footer{
     position:fixed;
@@ -64,15 +88,15 @@ body{
     width: 100vw;
     height: 80px;
     background-color: rgb(146, 146, 146);
+    z-index:1;
 }
 
 .browser{
     position:fixed;
-   
-    
     margin-left: 20%;
     bottom: 13px;
     background-size: 20px;
+    z-index:1;
 }
 
 .image-hover{
@@ -107,9 +131,6 @@ opacity:1;
 }
 
 .read-me{
-    
-    
-    
     height:140px;
     width:140px;
 
