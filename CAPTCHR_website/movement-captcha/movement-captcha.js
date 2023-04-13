@@ -11,18 +11,19 @@ let detachDelay = 100; // milliseconds
 let counter = 0;
 
 function setup() {
-  var canvas = document.getElementById("captcha-canvas");
-  var ctx = canvas.getContext("2d");
   
-  video = createCapture({video: { width: 300, height: 300 }, canvas: canvas});
+  var canvas = createCanvas(640, 480);
+  canvas.parent("captcha-canvas");
+  video = createCapture(VIDEO);
   video.size(width, height);
+  video.hide();
 
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on("pose", function (results) {
     poses = results;
   });
 
-  video.hide();
+  
 
   // create a blue circle at a random location on the canvas
   blueCircle = createVector(random(width), random(height));
@@ -38,6 +39,15 @@ function modelLoaded() {
 function draw() {
   // draw the video to the canvas
   image(video, 0, 0, width, height);
+
+  // get the video element
+  const videoElement = document.getElementById('myVideo');
+  
+  // draw the video element over the canvas
+  videoElement.style.position = 'absolute';
+  videoElement.style.top = '0';
+  videoElement.style.left = '0';
+  videoElement.style.zIndex = '1';
 
   textSize(32);
   fill(255);
